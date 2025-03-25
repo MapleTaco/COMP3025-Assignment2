@@ -43,12 +43,12 @@ public class MovieDetailsViewModel extends ViewModel {
                     json = new JSONObject(responseData);
                     String strTitle, strYear, strRuntime, strGenre, strPlot, strImdbRating, strPoster;
                     strTitle = json.getString("Title");
-                    strYear = json.getString("Title");
-                    strRuntime = json.getString("Title");
-                    strGenre = json.getString("Title");
-                    strPlot = json.getString("Title");
-                    strImdbRating = json.getString("Title");
-                    strPoster = json.getString("Title");
+                    strYear = json.getString("Year");
+                    strRuntime = json.getString("Runtime");
+                    strGenre = json.getString("Genre");
+                    strPlot = json.getString("Plot");
+                    strImdbRating = json.getString("imdbRating");
+                    strPoster = json.getString("Poster");
 
                     movieDetailsModel.setTitle(strTitle);
                     movieDetailsModel.setYear(strYear);

@@ -47,14 +47,12 @@ public class DetailsActivity extends AppCompatActivity {
         Intent detailsIntent = getIntent();
         String movieID = detailsIntent.getStringExtra("ID");
         detailsViewModel.LoadDetails(movieID);
-        //store the information contained in the intent.
-        //String name = luckyIntent.getStringExtra("NAME") + " Lucky Number";
-        //String luckyNumber = luckyIntent.getStringExtra("NUMBER");
 
-        //find the views that will display the name and lucky number
-        //TextView nameMessage = findViewById(R.id.userNumberMessage);
-        //TextView luckyNumberView = findViewById(R.id.luckyNumberView);
-
-
+        detailsBinding.backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }
