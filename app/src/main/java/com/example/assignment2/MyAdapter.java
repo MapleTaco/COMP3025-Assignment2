@@ -43,6 +43,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
         holder.title.setText(movie.getTitle());
         holder.year.setText(movie.getYear());
+        //figure out how to display poster later
         //holder.imageView.setImageResource(movie.getMoviePoster());
 
     }

@@ -1,15 +1,12 @@
 package com.example.assignment2;
 
-import java.util.List;
-
 public class Movie {
-    private String Title, Year, imdbID, Type, Poster;
+    private String Title, Year, imdbID, Poster;
 
-    public Movie(String title, String year, String imdbID, String type, String poster) {
+    public Movie(String title, String year, String imdbID, String poster) {
         Title = title;
         Year = year;
         this.imdbID = imdbID;
-        Type = type;
         Poster = poster;
     }
 
@@ -39,14 +36,6 @@ public class Movie {
 
     public void setImdbID(String imdbID) {
         this.imdbID = imdbID;
-    }
-
-    public String getType() {
-        return Type;
-    }
-
-    public void setType(String type) {
-        Type = type;
     }
 
     public String getPoster() {

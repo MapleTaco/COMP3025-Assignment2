@@ -1,6 +1,8 @@
 package com.example.assignment2;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -40,9 +42,6 @@ public class MainActivity extends AppCompatActivity implements MovieClickListene
         viewModel.getMovieData().observe(this, movieData -> {
             Log.i("tag", "Update View");
             movieList = movieData;
-            //binding.textViewUSD.setText(movieData.getUsdPrice());
-            //binding.textViewJPY.setText(movieData.getJPYPrice());
-            //binding.textViewEUR.setText(movieData.getEuroPrice());
 
             LinearLayoutManager layoutManager = new LinearLayoutManager(this);
             binding.recyclerView.setLayoutManager(layoutManager);
@@ -56,14 +55,24 @@ public class MainActivity extends AppCompatActivity implements MovieClickListene
         binding.searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewModel.Refresh();
+                if (TextUtils.isEmpty(binding.movieSearchBox.getText().toString().trim())) {
+                    binding.movieSearchBox.setError("Please enter a movie to search");
 
+                }
+
+                else {
+                    viewModel.Refresh(binding.movieSearchBox.getText().toString().trim());
+                }
             }
         });
     }
 
     @Override
     public void onClick(View v, int pos) {
-        Toast.makeText(this, "You Choose: "+ movieList.get(pos).getTitle(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "You Choose: "+ movieList.get(pos).getTitle(), Toast.LENGTH_SHORT).show();
+        Intent detailsIntent = new Intent(MainActivity.this, DetailsActivity.class);
+
+        detailsIntent.putExtra("ID", movieList.get(pos).getImdbID());
+        startActivity(detailsIntent);
     }
 }

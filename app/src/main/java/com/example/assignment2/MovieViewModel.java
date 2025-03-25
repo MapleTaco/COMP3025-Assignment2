@@ -1,5 +1,7 @@
 package com.example.assignment2;
 
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -28,8 +30,10 @@ public class MovieViewModel extends ViewModel {
         return movieData;
     }
 
-    public void Refresh() {
-        String urlString = "https://www.omdbapi.com/?s=guardian&apikey=490c742a";
+    public void Refresh(String search) {
+        movieModel = new ArrayList<Movie>();
+        //url search string using out api key and only showing movie types
+        String urlString = "https://www.omdbapi.com/?s=" + search + "&type=movie&apikey=490c742a";
 
         ApiClient.get(urlString, new Callback() {
             @Override
@@ -41,21 +45,35 @@ public class MovieViewModel extends ViewModel {
                 JSONObject json = null;
 
                 try {
-                    json = new JSONObject(responseData);
-                    JSONArray jsonArray = json.getJSONArray("Search");
-                    JSONObject jsonMovieResult = null;
-                    String strTitle, strYear, strID, strType, strPoster;
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        jsonMovieResult = jsonArray.getJSONObject(i);
-                        strTitle = jsonMovieResult.getString("Title");
-                        strYear = jsonMovieResult.getString("Year");
-                        strID = jsonMovieResult.getString("imdbID");
-                        strType = jsonMovieResult.getString("Type");
-                        strPoster = jsonMovieResult.getString("Poster");
 
-                        movieModel.add(new Movie(strTitle, strYear, strID, strType, strPoster));
-                    }
+                    json = new JSONObject(responseData);
+
+                    //check in case we get an invalid search result. i.e. no movies pop up
+                    if (json.getString("Response").equals("False")) {
+                        //should consider putting an error pop up somehow by passing info to the view.
+                        //toast doesn't work obviously, onResponse does not like it if we try to change
+                        // the return type from void to something else.
+                        //fortunately leaving this empty doesn't break anything
+                        //Toast.makeText(this, json.getString("Error"), Toast.LENGTH_SHORT).show();
+                    } else {
+
+
+                        JSONArray jsonArray = json.getJSONArray("Search");
+                        JSONObject jsonMovieResult = null;
+                        String strTitle, strYear, strID, strPoster;
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            jsonMovieResult = jsonArray.getJSONObject(i);
+                            strTitle = jsonMovieResult.getString("Title");
+                            strYear = jsonMovieResult.getString("Year");
+                            strID = jsonMovieResult.getString("imdbID");
+                            strPoster = jsonMovieResult.getString("Poster");
+
+                            movieModel.add(new Movie(strTitle, strYear, strID, strPoster));
+                        }
+
                         movieData.postValue(movieModel);
+
+                    }
 
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
@@ -68,5 +86,7 @@ public class MovieViewModel extends ViewModel {
 
             }
         });
+
+
     }
 }
