@@ -1,7 +1,5 @@
 package com.example.assignment2;
 
-import android.graphics.Bitmap;
-
 import okhttp3.Callback;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
