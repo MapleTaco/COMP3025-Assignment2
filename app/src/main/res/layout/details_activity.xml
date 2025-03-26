@@ -13,91 +13,95 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginEnd="48dp"
+        android:paddingStart="36dp"
+        android:paddingEnd="36dp"
         android:text="MovieTitle"
         android:textColor="@color/white"
-        android:textSize="32sp"
+        android:textSize="26sp"
         app:layout_constraintBottom_toTopOf="@+id/detailsPoster"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.43" />
 
     <TextView
         android:id="@+id/detailsYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
         android:layout_marginTop="20dp"
-        android:text="0000"
+        android:layout_marginEnd="32dp"
+        android:text="Released: 0000"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailsPoster" />
 
     <TextView
         android:id="@+id/detailsRuntime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="20dp"
-        android:text="000 min"
+        android:text="Length: 000 min"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/detailsYear"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailsPoster" />
 
     <TextView
         android:id="@+id/detailsGenre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="16dp"
-        android:text="Genre"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="10dp"
+        android:text="Genres: exampleGenre, examplegenre, examplegenre, examplegenre"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailsYear" />
+        app:layout_constraintTop_toBottomOf="@+id/detailsRating" />
 
     <TextView
         android:id="@+id/detailsPlot"
         android:layout_width="280dp"
         android:layout_height="150dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginTop="116dp"
+        android:lineSpacingExtra="2dp"
         android:text="Plot"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailsPoster" />
 
     <TextView
         android:id="@+id/detailsRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="112dp"
-        android:text="Rating"
+        android:text="Rating: 9.9"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailsPoster" />
 
     <ImageView
         android:id="@+id/detailsPoster"
         android:layout_width="210dp"
-        android:layout_height="250dp"
+        android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.307" />
+        app:layout_constraintVertical_bias="0.266" />
 
     <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="40dp"
         android:text="Go Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

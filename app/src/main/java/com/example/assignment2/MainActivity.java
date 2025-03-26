@@ -1,5 +1,19 @@
 package com.example.assignment2;
 
+//Student Name: Daniel Perusse
+//Student Number: 200551990
+//Assignment 2 - Movie Search App
+//COMP3025 - Mobile and Pervasive Computing
+//Date: March 25, 2025
+//Description: This application presents a screen with a edit text box
+//This box allows a user to input the name of a movie to search for it.
+//It will then list the first ten results of that search, listing the name
+//year and a poster image.
+//Tapping on a listing will then send you to a details page, showing further
+//information about the movie.
+//A back button is included to go back to the search activity
+//Application ran/tested on Medium Phone API 33.
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -60,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements MovieClickListene
 
                 else {
                     viewModel.Refresh(binding.movieSearchBox.getText().toString().trim());
+                    if (movieList == null || movieList.isEmpty()) {
+                        binding.movieSearchBox.setError("Bad Search. Try again.");
+                    }
                 }
             }
         });

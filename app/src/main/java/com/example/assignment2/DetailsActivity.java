@@ -32,11 +32,11 @@ public class DetailsActivity extends AppCompatActivity {
             Log.i("tag", "Update View");
             movieDetails = detailsData;
             detailsBinding.detailsTitle.setText(detailsData.getTitle());
-            detailsBinding.detailsYear.setText(detailsData.getYear());
-            detailsBinding.detailsRuntime.setText(detailsData.getRuntime());
-            detailsBinding.detailsGenre.setText(detailsData.getGenre());
+            detailsBinding.detailsYear.setText("Released: "+detailsData.getYear());
+            detailsBinding.detailsRuntime.setText("Length: "+detailsData.getRuntime());
+            detailsBinding.detailsGenre.setText("Genres: "+detailsData.getGenre());
             detailsBinding.detailsPlot.setText(detailsData.getPlot());
-            detailsBinding.detailsRating.setText(detailsData.getImdbRating());
+            detailsBinding.detailsRating.setText("Rating: "+detailsData.getImdbRating());
             Glide.with(this).load(detailsData.Poster).into(detailsBinding.detailsPoster);
         });
 
