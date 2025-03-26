@@ -12,6 +12,8 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+//Adapter based off of in class demos. Small addition in
+//onBindViewHolder override
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     List<Movie> movies;
@@ -45,7 +47,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
         holder.title.setText(movie.getTitle());
         holder.year.setText(movie.getYear());
-        Glide.with(context).load(movie.getPosterURL()).into(holder.imageView);
+        //added glide here to load up the poster image for each recycler view list item if it exists
+        if (!movie.getPosterURL().equals("N/A")) {
+            Glide.with(context).load(movie.getPosterURL()).into(holder.imageView);
+        }
 
     }
 

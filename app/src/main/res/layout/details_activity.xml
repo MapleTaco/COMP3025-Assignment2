@@ -90,6 +90,8 @@
         android:id="@+id/detailsPoster"
         android:layout_width="210dp"
         android:layout_height="300dp"
+        android:contentDescription="Movie Poster"
+        android:src="@drawable/no_image_available"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

@@ -5,8 +5,6 @@ import android.graphics.Bitmap;
 public class Movie {
     private String Title, Year, imdbID, PosterURL;
 
-    private Bitmap Poster;
-
     public Movie(String title, String year, String imdbID, String poster) {
         Title = title;
         Year = year;
@@ -48,13 +46,5 @@ public class Movie {
 
     public void setPosterURL(String posterURL) {
         PosterURL = posterURL;
-    }
-
-    public Bitmap getPoster() {
-        return Poster;
-    }
-
-    public void setPoster(Bitmap poster) {
-        Poster = poster;
     }
 }

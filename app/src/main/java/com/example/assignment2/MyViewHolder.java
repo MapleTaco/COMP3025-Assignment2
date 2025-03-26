@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+//viewholder based off of in class demos.
 public class MyViewHolder extends RecyclerView.ViewHolder {
 
     ImageView imageView;

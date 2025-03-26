@@ -49,13 +49,7 @@ public class MovieViewModel extends ViewModel {
                     json = new JSONObject(responseData);
 
                     //check in case we get an invalid search result. i.e. no movies pop up
-                    if (json.getString("Response").equals("False")) {
-                        //should consider putting an error pop up somehow by passing info to the view.
-                        //toast doesn't work obviously, onResponse does not like it if we try to change
-                        // the return type from void to something else.
-                        //fortunately leaving this empty doesn't break anything
-                        //Toast.makeText(this, json.getString("Error"), Toast.LENGTH_SHORT).show();
-                    } else {
+                    if (json.getString("Response").equals("True")) {
 
                         JSONArray jsonArray = json.getJSONArray("Search");
                         JSONObject jsonMovieResult = null;
@@ -73,7 +67,6 @@ public class MovieViewModel extends ViewModel {
                         }
                         movieData.postValue(movieModel);
                     }
-
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
