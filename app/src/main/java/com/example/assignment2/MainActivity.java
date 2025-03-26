@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity implements MovieClickListene
 
     @Override
     public void onClick(View v, int pos) {
-        //Toast.makeText(this, "You Choose: "+ movieList.get(pos).getTitle(), Toast.LENGTH_SHORT).show();
         Intent detailsIntent = new Intent(MainActivity.this, DetailsActivity.class);
 
         detailsIntent.putExtra("ID", movieList.get(pos).getImdbID());

@@ -1,5 +1,7 @@
 package com.example.assignment2;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -11,7 +13,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -19,6 +23,7 @@ import java.util.List;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class MovieViewModel extends ViewModel {
 
@@ -57,11 +62,11 @@ public class MovieViewModel extends ViewModel {
                         //Toast.makeText(this, json.getString("Error"), Toast.LENGTH_SHORT).show();
                     } else {
 
-
                         JSONArray jsonArray = json.getJSONArray("Search");
                         JSONObject jsonMovieResult = null;
                         String strTitle, strYear, strID, strPoster;
                         for (int i = 0; i < jsonArray.length(); i++) {
+                            int pos = i;
                             jsonMovieResult = jsonArray.getJSONObject(i);
                             strTitle = jsonMovieResult.getString("Title");
                             strYear = jsonMovieResult.getString("Year");
@@ -69,10 +74,9 @@ public class MovieViewModel extends ViewModel {
                             strPoster = jsonMovieResult.getString("Poster");
 
                             movieModel.add(new Movie(strTitle, strYear, strID, strPoster));
+
                         }
-
                         movieData.postValue(movieModel);
-
                     }
 
                 } catch (JSONException e) {
@@ -86,7 +90,5 @@ public class MovieViewModel extends ViewModel {
 
             }
         });
-
-
     }
 }

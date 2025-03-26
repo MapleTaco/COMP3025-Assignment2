@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
 
-    //ImageView imageView;
+    ImageView imageView;
     TextView title;
     TextView year;
 
@@ -18,7 +18,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
     public MyViewHolder(@NonNull View itemView, MovieClickListener clickListener) {
         super(itemView);
 
-        //imageView = itemView.findViewById(R.id.item_imageview);
+        imageView = itemView.findViewById(R.id.item_imageview);
         title = itemView.findViewById(R.id.item_title_text);
         year = itemView.findViewById(R.id.item_year_text);
 
