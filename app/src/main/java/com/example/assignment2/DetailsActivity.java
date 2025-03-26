@@ -8,6 +8,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.bumptech.glide.Glide;
 import com.example.assignment2.databinding.DetailsActivityBinding;
 
 public class DetailsActivity extends AppCompatActivity {
@@ -36,7 +37,7 @@ public class DetailsActivity extends AppCompatActivity {
             detailsBinding.detailsGenre.setText(detailsData.getGenre());
             detailsBinding.detailsPlot.setText(detailsData.getPlot());
             detailsBinding.detailsRating.setText(detailsData.getImdbRating());
-            //***don't forget poster binding as well!!!***
+            Glide.with(this).load(detailsData.Poster).into(detailsBinding.detailsPoster);
         });
 
         //get the intent sent from the previous activity

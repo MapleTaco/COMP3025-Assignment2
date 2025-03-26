@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
@@ -43,7 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
         holder.title.setText(movie.getTitle());
         holder.year.setText(movie.getYear());
-        //holder.imageView.setImageBitmap(movie.getPoster());
+        Glide.with(context).load(movie.getPosterURL()).into(holder.imageView);
 
     }
 
