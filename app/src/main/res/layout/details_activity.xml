@@ -62,9 +62,10 @@
 
     <TextView
         android:id="@+id/detailsPlot"
-        android:layout_width="280dp"
-        android:layout_height="150dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="116dp"
+        android:layout_marginStart="28dp"
         android:lineSpacingExtra="2dp"
         android:text="Plot"
         android:textColor="@color/white"
